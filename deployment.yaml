@@ -31,3 +31,8 @@ spec:
                 secretKeyRef:
                   name: openshift-demo-db
                   key: DB_PASSWORD
+            - name: DEVELOPER_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: openshift-demo-db
+                  key: DEVELOPER_NAME
