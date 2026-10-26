@@ -1,0 +1,118 @@
+{
+  "info": {
+    "_postman_id": "c887a131-370a-4878-8bb8-c34a80d7a52a",
+    "name": "OpenShift Demo API",
+    "description": "Requests for the OpenShift Demo Spring Boot application.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "personId",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Greeting",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            ""
+          ]
+        },
+        "description": "Returns the application greeting."
+      },
+      "response": []
+    },
+    {
+      "name": "Persons",
+      "item": [
+        {
+          "name": "Create person",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": 1,\n  \"name\": \"Alex Example\",\n  \"city\": \"Toronto\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/person/save",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "person",
+                "save"
+              ]
+            },
+            "description": "Saves a person. The person ID is supplied in the request body."
+          },
+          "response": []
+        },
+        {
+          "name": "Get all persons",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/person/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "person",
+                ""
+              ]
+            },
+            "description": "Returns all saved persons."
+          },
+          "response": []
+        },
+        {
+          "name": "Get person by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/person/{{personId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "person",
+                "{{personId}}"
+              ]
+            },
+            "description": "Returns the person matching the personId collection variable."
+          },
+          "response": []
+        }
+      ],
+      "description": "Person management endpoints."
+    }
+  ]
+}

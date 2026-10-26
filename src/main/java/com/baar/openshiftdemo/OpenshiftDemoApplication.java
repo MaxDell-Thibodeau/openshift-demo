@@ -1,5 +1,6 @@
 package com.baar.openshiftdemo;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,9 +10,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 public class OpenshiftDemoApplication {
+
+    @Value("${developer.name}")
+    private String developerName;
+
     @GetMapping("/")
     public String greeting(){
         return "Hello World!";
+    }
+
+    @GetMapping("/developer")
+    public String getDeveloperName() {
+        return developerName;
     }
 
     public static void main(String[] args) {

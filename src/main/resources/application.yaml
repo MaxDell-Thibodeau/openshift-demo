@@ -24,3 +24,5 @@ spring:
       hibernate:
       format_sql: true
     show-sql: true
+developer:
+  name: ${DEVELOPER_NAME}
